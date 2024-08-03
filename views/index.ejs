@@ -1,0 +1,35 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>My Book Collection</title>
+</head>
+<body>
+    <!-- <%- include('partials/header') %> -->
+
+    <div class="container">
+        <h2>Ainur's Book List</h2>
+        <a href="/add-book" class="btn btn-primary">Add New Book</a>
+        <div class="book-list">
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <img src="<%= book.cover_url %>" alt="<%= book.title %>">
+                    <h3><%= book.title %></h3>
+                    <p>by <%= book.author %></p>
+                    <p>Rating: <%= book.rating %>/5</p>
+                    <p><%= book.review %></p>
+                    <a href="/edit/<%= book.id %>" class="btn btn-secondary">Edit</a>
+                    <a href="/delete/<%= book.id %>" class="btn btn-danger">Delete</a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- <%- include('partials/footer') %> -->
+</body>
+</html>
+
+
